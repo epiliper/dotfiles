@@ -1,0 +1,1 @@
+printf "$(date +"%H:%M")"
