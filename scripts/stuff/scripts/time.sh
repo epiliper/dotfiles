@@ -1,1 +1,1 @@
-printf "$(date +"%H:%M")"
+printf "󰥔 $(date +"%H:%M")"

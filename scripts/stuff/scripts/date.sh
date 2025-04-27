@@ -1,1 +1,1 @@
-date +"%a, %B %d"
+echo " $(date +"%a, %B %d")"
