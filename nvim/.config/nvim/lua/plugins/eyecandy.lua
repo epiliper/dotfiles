@@ -31,27 +31,40 @@ return {
     config = true,
   },
   {
-    'everviolet/nvim',
-    name = 'evergarden',
-    priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
-    opts = {
-      theme = {
-        variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
-        accent = 'green',
-      },
-      editor = {
-        transparent_background = false,
-        sign = { color = 'none' },
-        float = {
-          color = 'mantle',
-          invert_border = false,
-        },
-        completion = {
-          color = 'surface0',
-        },
-      },
-    }
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup({
+        background = "soft",
+      })
+    end,
+
   },
+
+  -- {
+  --   'everviolet/nvim',
+  --   name = 'evergarden',
+  --   priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+  --   opts = {
+  --     theme = {
+  --       variant = 'fall', -- 'winter'|'fall'|'spring'|'summer'
+  --       accent = 'green',
+  --     },
+  --     editor = {
+  --       transparent_background = false,
+  --       sign = { color = 'none' },
+  --       float = {
+  --         color = 'mantle',
+  --         invert_border = false,
+  --       },
+  --       completion = {
+  --         color = 'surface0',
+  --       },
+  --     },
+  --   }
+  -- },
 
   { "nvim-lua/plenary.nvim" },
 

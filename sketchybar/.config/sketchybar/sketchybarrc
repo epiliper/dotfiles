@@ -18,17 +18,17 @@ sketchybar --bar height=42 \
                  padding_right=2 \
                  margin=10 \
                  corner_radius=12 \
-                 color=0xff232a2e \
+                 color=0xff333c43 \
                  shadow=on \
                 #  topmost=true
 
 ############## GLOBAL DEFAULTS ##############
 sketchybar --default updates=when_shown \
                      icon.font="Hack Nerd Font:Bold:14.0" \
-                     icon.color=0xffdddecf \
+                     icon.color=0xffd3c6aa \
                      icon.highlight_color=0xff83c092 \
                      label.font="Hack Nerd Font:Bold:12.5" \
-                     label.color=0xffdddecf \
+                     label.color=0xffd3c6aa \
                      background.corner_radius=5 \
                      background.height=30 \
                      icon.padding_left=4               \
