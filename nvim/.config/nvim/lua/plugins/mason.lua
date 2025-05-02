@@ -17,7 +17,7 @@ return {
         "pylsp",
         "rust_analyzer",
         "clangd",
-        "tailwindcss"
+        "tailwindcss",
       },
     })
   end,

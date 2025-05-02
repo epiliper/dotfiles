@@ -212,6 +212,12 @@ return {
       handlers = handlers,
     })
 
+    lspconfig['tinymist'].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      handlers = handlers,
+    })
+
     lspconfig['clangd'].setup({
       capabilities = capabilities,
       on_attach = on_attach,
