@@ -20,6 +20,7 @@ export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc
 
 alias 'od'='cd /Users/eli/Library/CloudStorage/OneDrive-UW/RSV\ serology/neut\ analysis\ EP'
 alias 'v'='nvim'
+alias 'mpile'='samtools mpileup -x -B -A -d 0 -Q 0 --ff UNMAP'
 alias 'wj'='jupyter notebook /Users/eli/stuff/work/python' 
 alias 'ystop'='yabai --stop-service'
 alias 'ygo'='yabai --start-service'
@@ -41,7 +42,7 @@ alias 'tenv'='source /Users/eli/tensor_env/bin/activate'
 export books_dir="$HOME/stuff/books"
 alias bopen='cd $books_dir; bn="$(find $books_dir/. -type f | fzf)"; zathura "${bn}" & disown -h'
 
-export PS1='\e[1;34m\W \e[0m '
+export PS1='\[\033[1;34m\]\W\[\033[0m\] '
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
@@ -87,4 +88,19 @@ PERL_MM_OPT="INSTALL_BASE=/Users/eli/perl5"; export PERL_MM_OPT;
 # MacPorts Installer addition on 2024-10-11_at_09:42:00: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+#
+# VADR
+export VADRINSTALLDIR="/Users/eli/clones/vadr/vadr"
+export VADRSCRIPTSDIR="$VADRINSTALLDIR/vadr"
+export VADRMODELDIR="$VADRINSTALLDIR/vadr-models-calici"
+export VADRINFERNALDIR="$VADRINSTALLDIR/infernal/binaries"
+export VADREASELDIR="$VADRINSTALLDIR/infernal/binaries"
+export VADRHMMERDIR="$VADRINSTALLDIR/infernal/binaries"
+export VADRBIOEASELDIR="$VADRINSTALLDIR/Bio-Easel"
+export VADRSEQUIPDIR="$VADRINSTALLDIR/sequip"
+export VADRBLASTDIR="$VADRINSTALLDIR/ncbi-blast/bin"
+export VADRFASTADIR="$VADRINSTALLDIR/fasta/bin"
+export VADRMINIMAP2DIR="$VADRINSTALLDIR/minimap2"
+export PERL5LIB="$VADRSCRIPTSDIR":"$VADRSEQUIPDIR":"$VADRBIOEASELDIR/blib/lib":"$VADRBIOEASELDIR/blib/arch":"$PERL5LIB"
+export PATH="$VADRSCRIPTSDIR":"$PATH"
 
