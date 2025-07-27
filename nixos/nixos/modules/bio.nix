@@ -1,11 +1,9 @@
 {
-  libs,
+  lib,
   pkgs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    typst
-    libreoffice
-    websocat
+    samtools
   ];
 }

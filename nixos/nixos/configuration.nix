@@ -43,8 +43,9 @@
     home = "/home/eli";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
-    alacritty
     zathura
     inputs.zen-browser.packages."${pkgs.system}".twilight
   ];
@@ -52,15 +53,9 @@
   security.pam.services.gtklock = {};
 
   fonts.packages = with pkgs; [
-  	(nerdfonts.override { fonts = ["JetBrainsMono"]; })
+  	(nerdfonts.override { fonts = ["JetBrainsMono" "Go-Mono"]; })
+    terminus_font
   ];
-
-  # sway config
-  programs.sway = {
-	  enable = true;
-	  wrapperFeatures.gtk = true;
-
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

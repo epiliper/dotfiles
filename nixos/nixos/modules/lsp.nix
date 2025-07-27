@@ -9,5 +9,7 @@ pkgs,
     basedpyright
     clang
     tinymist
+    ltex-ls
+    nil
   ];
 }

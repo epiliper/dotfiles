@@ -11,5 +11,8 @@
     ddcutil
     wlsunset
     unzip
+    ripgrep
+    samtools
+    (flameshot.override { enableWlrSupport = true; })
   ];
 }

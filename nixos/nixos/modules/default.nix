@@ -6,5 +6,6 @@
     ./lsp.nix
     ./languages.nix
     ./tasks.nix
+    ./bio.nix
   ];
 }
