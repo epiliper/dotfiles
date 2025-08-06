@@ -7,5 +7,6 @@
     ./languages.nix
     ./tasks.nix
     ./bio.nix
+    ./games.nix
   ];
 }

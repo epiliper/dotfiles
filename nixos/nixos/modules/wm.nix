@@ -23,9 +23,5 @@
     wrapperFeatures.gtk = true;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-  ];
-
   security.pam.services.gtklock = {};
 }

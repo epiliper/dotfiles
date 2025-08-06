@@ -28,7 +28,7 @@
   hardware.i2c.enable = true;
 
   # sound
-  hardware.pulseaudio.enable = true;
+  services.pulseaudio.enable = true;
   services.pipewire.enable = false;
 
   services.deluge = {
@@ -53,7 +53,7 @@
   security.pam.services.gtklock = {};
 
   fonts.packages = with pkgs; [
-  	(nerdfonts.override { fonts = ["JetBrainsMono" "Go-Mono"]; })
+    nerd-fonts.jetbrains-mono
     terminus_font
   ];
 

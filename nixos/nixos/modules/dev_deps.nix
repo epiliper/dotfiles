@@ -14,5 +14,6 @@
     vim
     neovim
     htslib
+    zola
   ];
 }

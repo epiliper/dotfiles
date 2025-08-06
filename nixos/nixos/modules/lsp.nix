@@ -11,5 +11,6 @@ pkgs,
     tinymist
     ltex-ls
     nil
+    emmet-language-server
   ];
 }
