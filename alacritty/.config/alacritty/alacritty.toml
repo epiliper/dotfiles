@@ -1,6 +1,7 @@
-# # EVERFOREST
+# # # EVERFOREST
 [colors.primary]
-background = "#333c43"
+# background = "#333c43"
+background = "#272E33"
 foreground = "#d3c6aa"
 
 [colors.normal]
@@ -22,16 +23,18 @@ blue = "#7fbbb3"
 magenta = "#d699b6"
 cyan = "#83c092"
 white = "#d3c6aa"
-
 [font]
-# size = 12.5
-size = 16
+size = 18
+# size = 22
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
+# family = "Terminus"
+# family = "GoMono Nerd Font"
+# family = "Unifont"
 # family = "IosevkaTerm Nerd Font Mono"
 # family= "BlexMono Nerd Font Mono"
-style = "Light"
+style = "Regular"
 
 [window]
 decorations = "buttonless"
@@ -42,6 +45,9 @@ option_as_alt = "OnlyLeft"
 [window.dimensions]
 columns = 120
 lines = 36
+
+[env]
+TERM = 'xterm-256color'
 
 [cursor]
 blink_interval = 250
