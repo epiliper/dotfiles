@@ -27,7 +27,7 @@ exec swayidle -w \
        timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
        before-sleep 'gtklock'
 
-       exec swaybg -i ~/stuff/walls/plant_wall2.jpg
+       exec swaybg -i ~/stuff/walls/shore.jpg
 
        input * {
          repeat_delay 200
@@ -35,7 +35,7 @@ exec swayidle -w \
        }
 
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+c exec zen-browser
+bindsym $mod+Shift+c exec zen
 
 bindsym $mod+q kill
 
@@ -88,7 +88,6 @@ bindsym $mod+Alt+7 move container to workspace number 7; workspace number 7
 bindsym $mod+Alt+8 move container to workspace number 8; workspace number 8
 bindsym $mod+Alt+9 move container to workspace number 9; workspace number 9
 
-
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 # You can "split" the current object of your focus with
@@ -120,15 +119,16 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-bindsym $mod+Alt+h             resize grow width  5 px or 5 ppt
-bindsym $mod+Alt+k             resize shrink   height 5 px or 5 ppt
-bindsym $mod+Alt+j             resize grow height 5 px or 5 ppt
-bindsym $mod+Alt+l             resize shrink   width  5 px or 5 ppt
 
-bindsym $mod+Ctrl+m exec "sh brightnessctl.sh 0"
-bindsym $mod+Ctrl+n exec "sh brightnessctl.sh 1"
+# left and right are modified to make resizing directional (ohhhhhhhhhh yesssssssssssssssss)
+bindsym $mod+Alt+h             exec "swaymsg resize grow left  5 px or 5 ppt || swaymsg resize shrink right 5px or 5 ppt"
+bindsym $mod+Alt+k             resize shrink   height 5 px or 5 ppt
+bindsym $mod+Alt+j             resize grow height 5 px or 5 ppt 
+bindsym $mod+Alt+l             exec "swaymsg resize grow right 5 px or 5 ppt || swaymsg resize shrink left 5 px or 5 ppt"
+
+bindsym $mod+Ctrl+m exec sh /home/eli/stuff/scripts/brightnessctl.sh 0
+bindsym $mod+Ctrl+n exec sh /home/eli/stuff/scripts/brightnessctl.sh 1
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
