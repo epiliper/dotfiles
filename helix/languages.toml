@@ -1,0 +1,33 @@
+## RUST
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+
+[language-server.rust-analyzer]
+timeout = 120
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+## GO
+[[language]]
+name = "go"
+language-servers = ["gopls"]
+
+[language-server.gopls]
+command = "gopls"
+
+## JAVA
+[[language]]
+name = "java"
+language-servers = ["jdtls"]
+
+[language-server.jdtls]
+command = "jdtls"
+args = ["--java-executable", "java", "--no-validate-java-version"]
+
+## HTML
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "emmet-language-server"]
+auto-format = true

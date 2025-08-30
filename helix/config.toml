@@ -1,0 +1,8 @@
+theme = "everforest"
+
+[keys.normal.space]
+"f" = "file_picker_in_current_directory"
+
+[editor]
+scrolloff = 10
+end-of-line-diagnostics = "hint"
