@@ -1,7 +1,10 @@
 return {
-  "williamboman/mason.nvim",
+  -- "williamboman/mason.nvim",
+  {"mason-org/mason-lspconfig.nvim", version = "1.32.0"},
+  {"mason-org/mason.nvim",
+  version = "1.11.0",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
@@ -10,7 +13,6 @@ return {
     local mason = require("mason")
     mason.setup()
     local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
     mason_lspconfig.setup({
       ensure_installed = {
         "lua_ls",
@@ -21,4 +23,5 @@ return {
       },
     })
   end,
+}
 }
