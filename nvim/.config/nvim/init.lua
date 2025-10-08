@@ -46,9 +46,13 @@ vim.cmd("hi! NormalFloat ctermbg=NONE guibg=NONE")
 vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
 vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
 vim.cmd("colorscheme everforest")
+-- vim.cmd("colorscheme onedark")
 --
 -- colorscheme
 vim.api.nvim_set_option("synmaxcol", 200)
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 cmdheight = 0
 
@@ -62,4 +66,4 @@ vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>d', builtin.diagnostics, {})
-vim.keymap.set('n', '<leader>s', builtin.lsp_workspace_symbols, {})
+vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, {})

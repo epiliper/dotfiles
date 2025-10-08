@@ -31,6 +31,11 @@ return {
 
   },
 
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
+
   { "nvim-lua/plenary.nvim" },
 
   {
@@ -54,6 +59,11 @@ return {
     end,
   },
   {
+    'folke/zen-mode.nvim',
+  },
+
+  { 'preservim/vim-pencil' },
+  {
     "lukas-reineke/headlines.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = true, -- or `opts = {}`
@@ -66,9 +76,16 @@ return {
       })
     end,
   },
-  {
-    "iamcco/markdown-preview.nvim",
-  }
+-- install with yarn or npm
+{
+  "iamcco/markdown-preview.nvim",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = "cd app && yarn install",
+  init = function()
+    vim.g.mkdp_filetypes = { "markdown" }
+  end,
+  ft = { "markdown" },
+},
 
 
 }
