@@ -8,7 +8,6 @@ return {
     version = '1.*',
     opts = {},    -- lazy.nvim will implicitly calls `setup {}`
   },
-
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -25,16 +24,13 @@ return {
     config = function()
       require("everforest").setup({
         background = "hard",
-        transparent_background_level = 2,
+        transparent_background_level = 1,
       })
+      -- vim.cmd.colorscheme("everforest")
     end,
 
   },
 
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-  },
 
   { "nvim-lua/plenary.nvim" },
 
@@ -62,6 +58,7 @@ return {
     'folke/zen-mode.nvim',
   },
 
+
   { 'preservim/vim-pencil' },
   {
     "lukas-reineke/headlines.nvim",
@@ -76,16 +73,16 @@ return {
       })
     end,
   },
--- install with yarn or npm
-{
-  "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  build = "cd app && yarn install",
-  init = function()
-    vim.g.mkdp_filetypes = { "markdown" }
-  end,
-  ft = { "markdown" },
-},
+  -- install with yarn or npm
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
 
 
 }

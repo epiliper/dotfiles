@@ -13,6 +13,16 @@ return {
       ['<Tab>'] = { 'accept', 'fallback' },
     },
 
+    signature = {
+      enabled = true,
+      -- trigger = {
+      --   show_on_insert_char = true,
+      -- },
+      window = {
+        border = 'rounded',
+      }
+    },
+
     appearance = {
       nerd_font_variant = 'mono'
     },

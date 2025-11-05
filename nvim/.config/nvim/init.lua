@@ -25,7 +25,6 @@ vim.keymap.set("n", "<leader>Y", "'+Y")
 vim.keymap.set("n", "<leader>m", '<Cmd>!make<CR>')
 
 vim.opt.number = true
-vim.o.termguicolors = true
 
 -- vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
@@ -45,14 +44,14 @@ vim.cmd("hi! NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE ctermbg=NONE
 vim.cmd("hi! NormalFloat ctermbg=NONE guibg=NONE")
 vim.cmd("hi! LineNr guibg=NONE ctermbg=NONE")
 vim.cmd("hi! SignColumn guibg=NONE ctermbg=NONE")
+
 vim.cmd("colorscheme everforest")
--- vim.cmd("colorscheme onedark")
---
--- colorscheme
+
 vim.api.nvim_set_option("synmaxcol", 200)
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
+
 
 cmdheight = 0
 

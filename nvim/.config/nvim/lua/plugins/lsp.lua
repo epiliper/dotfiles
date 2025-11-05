@@ -55,33 +55,29 @@ return {
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
       end
 
-      local lspconfig = require("lspconfig")
 
-      lspconfig["lua_ls"].setup({
+      -- Configure each language server using vim.lsp.config
+      vim.lsp.config('lua_ls', {
         capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers,
       })
 
-
-      -- lspconfig['jedi_language_server'].setup({
-      lspconfig['basedpyright'].setup({
+      vim.lsp.config('basedpyright', {
         capabilities = capabilities,
         on_attach = on_attach,
         root_dir = function()
           return vim.fn.getcwd()
         end,
-        handlers = handlers,
         settings = {
           basedpyright = {
             analysis = {
               diagnosticSeverityOverrides = {
-                reportUnknownVariableType = "none",  -- Unknown variable types
-                reportUnknownParameterType = "none", -- Unknown parameter types
-                reportUnknownMemberType = "none",    -- Unknown member types
-                reportMissingTypeStubs = "none",     -- Missing type stubs for third-party libraries
-                reportUnknownArgumentType = "none",  -- Unknown argument types
-                reportGeneralTypeIssues = "none",    -- General type issues (broader category)
+                reportUnknownVariableType = "none",
+                reportUnknownParameterType = "none",
+                reportUnknownMemberType = "none",
+                reportMissingTypeStubs = "none",
+                reportUnknownArgumentType = "none",
+                reportGeneralTypeIssues = "none",
                 reportUnusedExpression = "none",
               }
             },
@@ -89,10 +85,9 @@ return {
         }
       })
 
-      lspconfig["rust_analyzer"].setup({
-        capabilites = capabilities,
+      vim.lsp.config('rust_analyzer', {
+        capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers,
         settings = {
           ['rust-analyzer'] = {
             check = {
@@ -102,49 +97,54 @@ return {
         }
       })
 
-      lspconfig["gopls"].setup({
-        capabilites = capabilities,
-        on_attach = on_attach,
-        handlers = handlers,
-      })
-
-      -- shit is slow
-      -- lspconfig['tailwindcss'].setup({
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      --   handlers = handlers,
-      -- })
-
-      lspconfig['jdtls'].setup({
-        -- cmd = { "jdtls", "--java-executable", "java" },
-        cmd          = { "jdtls", "--java-executable", "java", "--no-validate-java-version" },
-        capabilities = capabilities,
-        on_attach    = on_attach,
-        handlers     = handlers,
-      })
-
-      lspconfig['html'].setup({
+      vim.lsp.config('gopls', {
         capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers
       })
 
-      lspconfig['emmet_language_server'].setup({
+      vim.lsp.config('jdtls', {
+        cmd = { "jdtls", "--java-executable", "java", "--no-validate-java-version" },
         capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers,
       })
 
-      lspconfig['tinymist'].setup({
+      vim.lsp.config('html', {
         capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers,
       })
 
-      lspconfig['clangd'].setup({
+      vim.lsp.config('emmet_language_server', {
         capabilities = capabilities,
         on_attach = on_attach,
-        handlers = handlers,
+      })
+
+      vim.lsp.config('awk_ls', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      vim.lsp.config('tinymist', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      vim.lsp.config('clangd', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- Enable the configured servers
+      vim.lsp.enable({
+        'lua_ls',
+        'basedpyright',
+        'rust_analyzer',
+        'gopls',
+        'jdtls',
+        'html',
+        'emmet_language_server',
+        'awk_ls',
+        'tinymist',
+        'clangd',
       })
     end,
   }

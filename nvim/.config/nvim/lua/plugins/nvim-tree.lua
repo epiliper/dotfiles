@@ -7,15 +7,15 @@ return {
         sorter = "case_sensitive",
       },
       view = {
-        width = 45,
-        signcolumn = "no",
+        width = 30,
+        signcolumn = "yes",
       },
       renderer = {
         group_empty = true,
         icons = {
-          webdev_colors = false,
+          webdev_colors = true,
           show = {
-            file = false,
+            file = true,
             folder = true,
             folder_arrow = false,
             git = false,
