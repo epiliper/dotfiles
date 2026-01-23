@@ -47,7 +47,7 @@ nnoremap y "+y
 vnoremap y "+y
 nnoremap Y "+Y
 nnoremap yy "+yy
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :Files!<CR>
 nnoremap <leader>g :Rg<CR>
 
 colorscheme everforest
@@ -109,4 +109,4 @@ augroup lsp_install
 augroup END
 
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
-autocmd VimEnter * if argc() == 0 | call timer_start(50, {-> execute('Files')}) | call timer_start(100, {-> execute('startinsert')}) | endif
+autocmd VimEnter * if argc() == 0 | call execute('Files!') | endif
