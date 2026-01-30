@@ -1,4 +1,6 @@
 {
+"suggest.maxCompleteItemCount": 10,
+"inlayHint.enable": false,
 "semanticTokens.enable": true,
 "languageserver": {
   "rust": {
@@ -6,11 +8,11 @@
     "filetypes": ["rust"],
     "rootPatterns": ["Cargo.toml"]
   },
-
   "clangd": {
     "command": "clangd",
     "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
     "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
   }
-}
+},
+"extensions.updateCheck": "daily"
 }

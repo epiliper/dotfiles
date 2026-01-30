@@ -33,7 +33,6 @@ call plug#begin()
 Plug 'sainnhe/everforest'
 Plug 'morhetz/gruvbox'
 
-Plug 'prabirshrestha/vim-lsp'
 Plug 'tpope/vim-commentary'
 
 Plug 'vim-airline/vim-airline'
@@ -53,9 +52,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 source ~/lsp.vim
+
+noremap :W :w
 
 nnoremap y "+y
 vnoremap y "+y
@@ -64,22 +67,29 @@ nnoremap yy "+yy
 nnoremap <leader>f :Files!<CR>
 nnoremap <leader>g :Rg<CR>
 
-colorscheme everforest
-let g:everforest_background="hard"
+" buffer navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-j>h
+nnoremap <C-k> <C-k>h
+nnoremap <C-l> <C-l>h
 
-" colorscheme gruvbox
-" let g:gruvbox_contrast_dark = "soft"
+let g:everforest_background="hard"
+colorscheme everforest
+
 set background=dark
 
-let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
-" autocmd VimEnter * if argc() == 0 | call execute('Files') | endif
-
+autocmd VimEnter * let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
+autocmd VimEnter * if argc() == 0 | call timer_start(10, { -> execute('Files!') }) | endif
+"
 set nocompatible
 filetype plugin on
 
 " WRITING
+:hi SpellBad cterm=underline
+let g:typst_pdf_viewer = "LivePDFviewer"
+
 function WriteMode()
-	execute 'Goyo'
+	" execute 'Goyo'
 	call pencil#init()
 	set spell
 endfunction
