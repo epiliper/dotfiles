@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "coc-pyright": ">=1.1.310",
+    "coc-clangd": ">=0.32.0",
+    "coc-rust-analyzer": ">=0.86.0"
+  },
+  "lastUpdate": 1773158273511
+}

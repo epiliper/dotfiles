@@ -13,12 +13,13 @@ set termguicolors
 set linebreak
 set wrap
 
-set updatetime=300
+set updatetime=100
 set cmdheight=2
 
 set clipboard=unnamedplus
 
 set noswapfile
+set incsearch
 
 let g:lsp_semantic_enabled = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
@@ -29,6 +30,15 @@ let g:lsp_fold_enabled = 0
 
 let mapleader = " "
 nnoremap <Space> <Nop>
+
+" read option as Alt to avoid Mac horseshit
+if has('mac') || has('macunix')
+	nnoremap ∆ <C-w>+  
+	nnoremap ˚ <C-w>-
+	nnoremap ˙ <C-w><
+	nnoremap ¬ <C-w>>
+endif
+
 
 syntax enable
 
@@ -62,6 +72,7 @@ Plug 'nextflow-io/vim-language-nextflow', { 'commit': 'd01f1ccaf8db1d9ed5fbacced
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmsvg/pear-tree'
 
 call plug#end()
 
@@ -75,15 +86,11 @@ nnoremap yy "+yy
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>f :PickerEdit<CR>
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-j>h
-nnoremap <C-k> <C-k>h
-nnoremap <C-l> <C-l>h
 
-nnoremap <M-h> :vertical resize -2<CR>
-nnoremap <M-l> :vertical resize +2<CR>
-nnoremap <M-j> :resize +2<CR>
-nnoremap <M-k> :resize -2<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 
 let g:everforest_background="hard"
@@ -95,6 +102,9 @@ autocmd VimEnter * if argc() == 0 | call timer_start(1, { -> execute('PickerEdit
 
 let g:picker_custom_find_executable = 'rg'
 let g:picker_custom_find_flags = '--color never --files --max-depth 5 --hidden -L'
+
+" only use enter to confirm suggestsions if suggestions are actually showing!
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 
 set nocompatible
 filetype plugin on
@@ -115,3 +125,17 @@ augroup pencil
   autocmd FileType text         call WriteMode()
   autocmd FileType typst        call WriteMode()
 augroup END
+
+" restore cursor position on file open
+augroup RestoreCursor
+	autocmd!
+	autocmd BufReadPost *
+				\ let line = line("'\"")
+				\ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+				\      && index(['xxd', 'gitrebase'], &filetype) == -1
+				\      && !&diff
+				\ |   execute "normal! g`\""
+				\ | endif
+augroup END
+
+let g:pear_tree_repeatable_expand = 0
