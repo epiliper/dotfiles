@@ -92,9 +92,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <leader>bb :Buffers<CR>
 
 let g:everforest_background="hard"
+let g:gruvbox_contrast_dark = "soft"
+" colorscheme gruvbox-material
 colorscheme everforest
+" colorscheme ron
 
 set background=dark
 
@@ -138,4 +142,15 @@ augroup RestoreCursor
 				\ | endif
 augroup END
 
+" PEARTREE
 let g:pear_tree_repeatable_expand = 0
+
+" Disable automapping so we can fix Coc mapping.
+let g:pear_tree_map_special_keys = 0
+
+" Default mappings:
+imap <BS> <Plug>(PearTreeBackspace)
+imap <Esc> <Plug>(PearTreeFinishExpansion)
+
+" Get PearTreeExpand working with coc.nvim
+imap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<Plug>(PearTreeExpand)"

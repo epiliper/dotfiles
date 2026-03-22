@@ -1,18 +1,31 @@
 {
+"suggest.timeout": 500,
+"signature.target": "echo",
+"diagnostic.messageDelay": 100,
+"diagnostic.refreshOnInsertMode": false,
+"diagnostic.virtualText": true,
+"diagnostic.virtualTextCurrentLineOnly": false,
+"suggest.minTriggerInputLength": 2,
+"suggest.autoTrigger": "none",
+"suggest.maxCompleteItemCount": 20,
+
+"suggest.autoTrigger": "None",
 "suggest.maxCompleteItemCount": 10,
 "inlayHint.enable": false,
 "semanticTokens.enable": true,
-"languageserver": {
-  "rust": {
-    "command": "rust-analyzer",
-    "filetypes": ["rust"],
-    "rootPatterns": ["Cargo.toml"]
-  },
-  "clangd": {
-    "command": "clangd",
-    "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-  }
-},
+
+"coc.preferences.formatOnSaveFiletypes": [
+	"c",
+	"cpp",
+	"hpp",
+	"rust"
+],
+
+"rust-analyzer.check.command" : "clippy",
+"workspace.ignoredFolders": [
+  "$HOME",
+  "$HOME/.cargo/**",
+  "$HOME/.rustup/**"
+],
 "extensions.updateCheck": "daily"
 }
