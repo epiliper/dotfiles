@@ -31,13 +31,13 @@ let g:lsp_fold_enabled = 0
 let mapleader = " "
 nnoremap <Space> <Nop>
 
-" read option as Alt to avoid Mac horseshit
-if has('mac') || has('macunix')
-	nnoremap ∆ <C-w>+  
-	nnoremap ˚ <C-w>-
-	nnoremap ˙ <C-w><
-	nnoremap ¬ <C-w>>
-endif
+" " read option as Alt to avoid Mac horseshit
+" if has('mac') || has('macunix')
+" 	nnoremap ∆ <C-w>+  
+" 	nnoremap ˚ <C-w>-
+" 	nnoremap ˙ <C-w><
+" 	nnoremap ¬ <C-w>>
+" endif
 
 
 syntax enable
@@ -45,10 +45,12 @@ syntax enable
 call plug#begin()
 
 Plug 'sainnhe/everforest'
-Plug 'sainnhe/gruvbox-material'
-Plug 'morhetz/gruvbox'
+Plug 'chasinglogic/modus-themes-vim'
 
 Plug 'tpope/vim-commentary'
+Plug 'markonm/traces.vim'
+
+Plug 'preservim/nerdtree'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -71,7 +73,10 @@ Plug 'nextflow-io/vim-language-nextflow', { 'commit': 'd01f1ccaf8db1d9ed5fbacced
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+Plug 'drmikehenry/vim-fixkey'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'RyanMillerC/better-vim-tmux-resizer'
+
 Plug 'tmsvg/pear-tree'
 
 call plug#end()
@@ -82,23 +87,37 @@ nnoremap y "+y
 vnoremap y "+y
 nnoremap Y "+Y
 nnoremap yy "+yy
-" nnoremap <leader>f :Files!<CR>
+
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>f :PickerEdit<CR>
+nnoremap <leader>ee :NERDTreeToggle<CR>
 
+" nunmap <C-w>h
+" nunmap <C-w>j
+" nunmap <C-w>k
+" nunmap <C-w>l
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
+" tmux resize
+let g:tmux_resizer_no_mappings = 1
+
+nnoremap <silent> <A-h> :TmuxResizeLeft<CR>
+nnoremap <silent> <A-j> :TmuxResizeDown<CR>
+nnoremap <silent> <A-k> :TmuxResizeUp<CR>
+nnoremap <silent> <A-l> :TmuxResizeRight<CR>
+
+
 nnoremap <leader>bb :Buffers<CR>
 
 let g:everforest_background="hard"
-let g:gruvbox_contrast_dark = "soft"
 " colorscheme gruvbox-material
 colorscheme everforest
-" colorscheme ron
+" colorscheme jellybeans
 
 set background=dark
 
@@ -154,3 +173,4 @@ imap <Esc> <Plug>(PearTreeFinishExpansion)
 
 " Get PearTreeExpand working with coc.nvim
 imap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<Plug>(PearTreeExpand)"
+
