@@ -14,7 +14,7 @@ set linebreak
 set wrap
 
 set updatetime=100
-set cmdheight=2
+set cmdheight=1
 
 set clipboard=unnamedplus
 
@@ -45,7 +45,8 @@ syntax enable
 call plug#begin()
 
 Plug 'sainnhe/everforest'
-Plug 'chasinglogic/modus-themes-vim'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'tpope/vim-commentary'
 Plug 'markonm/traces.vim'
@@ -67,7 +68,7 @@ Plug 'preservim/vim-pencil'
 Plug 'junegunn/goyo.vim'
 
 Plug 'kaarmu/typst.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+Plug 'neoclide/coc.nvim', {'do': 'npm ci', 'commit': 'd6db809b14f32f6db423d47fae1d61b6f023934c'}
 
 Plug 'nextflow-io/vim-language-nextflow', { 'commit': 'd01f1ccaf8db1d9ed5fbacceddbb7735429e6062' }
 
@@ -115,9 +116,7 @@ nnoremap <silent> <A-l> :TmuxResizeRight<CR>
 nnoremap <leader>bb :Buffers<CR>
 
 let g:everforest_background="hard"
-" colorscheme gruvbox-material
 colorscheme everforest
-" colorscheme jellybeans
 
 set background=dark
 
@@ -126,8 +125,6 @@ autocmd VimEnter * if argc() == 0 | call timer_start(1, { -> execute('PickerEdit
 let g:picker_custom_find_executable = 'rg'
 let g:picker_custom_find_flags = '--color never --files --max-depth 5 --hidden -L'
 
-" only use enter to confirm suggestsions if suggestions are actually showing!
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 
 set nocompatible
 filetype plugin on
@@ -137,16 +134,24 @@ filetype plugin on
 let g:typst_pdf_viewer = "LivePDFviewer"
 
 function WriteMode()
-	" execute 'Goyo'
-	call pencil#init()
+	execute 'PencilSoft'
 	set spell
+endfunction
+
+function WriteModeMarkdown()
+	call WriteMode()
+endfunction
+
+function WriteModeTypst()
+	execute 'TypstWatch'
+	call WriteMode()
 endfunction
 
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call WriteMode()
+  autocmd FileType markdown,mkd call WriteModeMarkdown()
   autocmd FileType text         call WriteMode()
-  autocmd FileType typst        call WriteMode()
+  autocmd FileType typst        call WriteModeTypst()
 augroup END
 
 " restore cursor position on file open
@@ -172,5 +177,4 @@ imap <BS> <Plug>(PearTreeBackspace)
 imap <Esc> <Plug>(PearTreeFinishExpansion)
 
 " Get PearTreeExpand working with coc.nvim
-imap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<Plug>(PearTreeExpand)"
-
+imap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<Plug>(PearTreeExpand)"
