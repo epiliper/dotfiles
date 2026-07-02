@@ -4,6 +4,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+set scrolloff=10
+
 set copyindent
 set autoindent
 set smartindent
@@ -21,23 +23,11 @@ set clipboard=unnamedplus
 set noswapfile
 set incsearch
 
-let g:lsp_semantic_enabled = 1
-let g:lsp_diagnostics_virtual_text_enabled = 0
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_work_done_progress_enabled=0
-let g:lsp_fold_enabled = 0
-let g:lsp_fold_enabled = 0
+let g:Hexokinase_highlighters = ['backgroundfull']
+let g:coc_start_at_startup = 1
 
 let mapleader = " "
 nnoremap <Space> <Nop>
-
-" " read option as Alt to avoid Mac horseshit
-" if has('mac') || has('macunix')
-" 	nnoremap ∆ <C-w>+  
-" 	nnoremap ˚ <C-w>-
-" 	nnoremap ˙ <C-w><
-" 	nnoremap ¬ <C-w>>
-" endif
 
 
 syntax enable
@@ -46,7 +36,10 @@ call plug#begin()
 
 Plug 'sainnhe/everforest'
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
+Plug 'ericbn/vim-solarized'
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'axvr/photon.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'markonm/traces.vim'
@@ -114,8 +107,10 @@ nnoremap <silent> <A-l> :TmuxResizeRight<CR>
 
 
 nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>t :GitGutterDiffOrig<CR>
 
 let g:everforest_background="hard"
+let g:everforest_transparent_background=1
 colorscheme everforest
 
 set background=dark
