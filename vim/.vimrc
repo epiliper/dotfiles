@@ -4,7 +4,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
-set scrolloff=10
+set scrolloff=3
 
 set copyindent
 set autoindent
@@ -110,7 +110,7 @@ nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>t :GitGutterDiffOrig<CR>
 
 let g:everforest_background="hard"
-let g:everforest_transparent_background=1
+" let g:everforest_transparent_background=1
 colorscheme everforest
 
 set background=dark

@@ -1,31 +1,79 @@
 {
-"suggest.timeout": 500,
-"signature.target": "echo",
-"diagnostic.messageDelay": 100,
-"diagnostic.refreshOnInsertMode": false,
-"diagnostic.virtualText": true,
-"diagnostic.virtualTextCurrentLineOnly": false,
-"suggest.minTriggerInputLength": 2,
-"suggest.autoTrigger": "none",
-"suggest.maxCompleteItemCount": 20,
-
-"suggest.autoTrigger": "None",
-"suggest.maxCompleteItemCount": 10,
-"inlayHint.enable": false,
-"semanticTokens.enable": true,
-
-"coc.preferences.formatOnSaveFiletypes": [
-	"c",
-	"cpp",
-	"hpp",
-	"rust"
-],
-
-"rust-analyzer.check.command" : "clippy",
-"workspace.ignoredFolders": [
-  "$HOME",
-  "$HOME/.cargo/**",
-  "$HOME/.rustup/**"
-],
-"extensions.updateCheck": "daily"
+	"suggest.timeout": 500,
+	"signature.target": "echo",
+	"diagnostic.messageDelay": 100,
+	"diagnostic.refreshOnInsertMode": false,
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextCurrentLineOnly": true,
+	"suggest.minTriggerInputLength": 2,
+	"suggest.maxCompleteItemCount": 20,
+	"coc.preferences.formatOnSave": true,
+	"list.floatPreview": true,
+	"suggest.autoTrigger": "none",
+	"inlayHint.enable": false,
+	"semanticTokens.enable": true,
+	"rust-analyzer.check.command": "clippy",
+	"rust-analyzer.checkOnSave": true,
+	"rust-analyzer.check.workspace": true,
+	"rust-analyzer.diagnostics.enable": true,
+	"rust-analyzer.diagnostics.experimental.enable": true,
+	"rust-analyzer.procMacro.enable": true,
+	"workspace.ignoredFolders": [
+		"$HOME",
+		"$HOME/.cargo/**",
+		"$HOME/.rustup/**"
+	],
+	"extensions.updateCheck": "daily",
+	"languageserver": {
+		"nextflow": {
+			"command": "java",
+			"args": [
+				"-jar",
+				"/Users/eli/clones/nf-language-server/build/libs/language-server-all.jar"
+			],
+			"filetypes": [
+				"nextflow"
+			],
+			"rootPatterns": [
+				"nextflow.config",
+				".git/"
+			],
+			"settings": {
+				"formatCommand": "nextflow lint -format",
+				"nextflow": {
+					"files": {
+						"exclude": [
+							".git",
+							".nf-test",
+							"work"
+						]
+					}
+				}
+			}
+		},
+		"tinymist": {
+			"command": "tinymist",
+			"args": [
+				"lsp"
+			],
+			"filetypes": [
+				"typst"
+			],
+			"rootPatterns": [
+				"*.typ",
+				"main.typ",
+				".git/"
+			]
+		},
+		"zls": {
+			"command": "zls",
+			"filetypes": [
+				"zig"
+			],
+			"rootPatterns": [
+				"*.zig",
+				"build.zig"
+			]
+		}
+	}
 }
