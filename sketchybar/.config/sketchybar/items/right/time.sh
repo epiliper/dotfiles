@@ -10,7 +10,7 @@ sketchybar --add item time right \
            --set time update_freq=1 \
                       icon.drawing=off \
                       script="~/.config/sketchybar/plugins/time.sh" \
-                      background.color=0xff3f4a53 \
+                      background.color=0xff080808 \
                       label.font="$FONT:Regular:14.5" \
                       background.padding_left=0
 			
@@ -18,6 +18,6 @@ sketchybar --add item time right \
 sketchybar --add item time_logo right\
            --set time_logo icon= \
                            label.drawing=off \
-                           icon.color=0xff333c43 \
+                           icon.color=0xff080808 \
                            label.drawing=off \
-                           background.color=0xffdbbc7f
+                           background.color=0xff36c692

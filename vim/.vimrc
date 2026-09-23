@@ -15,8 +15,10 @@ set termguicolors
 set linebreak
 set wrap
 
+set hidden
+
 set updatetime=100
-set cmdheight=1
+set cmdheight=2
 
 set clipboard=unnamedplus
 
@@ -29,17 +31,13 @@ let g:coc_start_at_startup = 1
 let mapleader = " "
 nnoremap <Space> <Nop>
 
-
 syntax enable
 
 call plug#begin()
 
 Plug 'sainnhe/everforest'
-Plug 'morhetz/gruvbox'
-Plug 'ericbn/vim-solarized'
-Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'axvr/photon.vim'
+Plug 'chriskempson/base16-vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'markonm/traces.vim'
@@ -60,7 +58,6 @@ Plug 'srstevenson/vim-picker'
 Plug 'preservim/vim-pencil'
 Plug 'junegunn/goyo.vim'
 
-Plug 'kaarmu/typst.vim'
 Plug 'neoclide/coc.nvim', {'do': 'npm ci', 'commit': 'd6db809b14f32f6db423d47fae1d61b6f023934c'}
 
 Plug 'nextflow-io/vim-language-nextflow', { 'commit': 'd01f1ccaf8db1d9ed5fbacceddbb7735429e6062' }
@@ -76,6 +73,7 @@ Plug 'tmsvg/pear-tree'
 call plug#end()
 
 source ~/lsp.vim
+source ~/typst.vim
 
 nnoremap y "+y
 vnoremap y "+y
@@ -85,11 +83,6 @@ nnoremap yy "+yy
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>f :PickerEdit<CR>
 nnoremap <leader>ee :NERDTreeToggle<CR>
-
-" nunmap <C-w>h
-" nunmap <C-w>j
-" nunmap <C-w>k
-" nunmap <C-w>l
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -105,15 +98,22 @@ nnoremap <silent> <A-j> :TmuxResizeDown<CR>
 nnoremap <silent> <A-k> :TmuxResizeUp<CR>
 nnoremap <silent> <A-l> :TmuxResizeRight<CR>
 
-
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>t :GitGutterDiffOrig<CR>
 
 let g:everforest_background="hard"
-" let g:everforest_transparent_background=1
+let g:everforest_transparent_background=1
 colorscheme everforest
+" colorscheme "base16-3024"
+" colorscheme base16-sandcastle
 
 set background=dark
+
+" BEGIN: transparent background
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+" END: transparent background
 
 autocmd VimEnter * if argc() == 0 | call timer_start(1, { -> execute('PickerEdit') }) | endif
 
@@ -127,6 +127,8 @@ filetype plugin on
 " WRITING
 :hi SpellBad cterm=underline
 let g:typst_pdf_viewer = "LivePDFviewer"
+" let g:typst_pdf_viewer = "Preview"
+" let g:typst_pdf_viewer = "zathura"
 
 function WriteMode()
 	execute 'PencilSoft'
@@ -138,7 +140,10 @@ function WriteModeMarkdown()
 endfunction
 
 function WriteModeTypst()
-	execute 'TypstWatch'
+	autocmd TextChanged,TextChangedI *.typ silent! execute 'write! ' . expand('%:r') . '.watch.' . expand('%:e')
+	" execute 'TypstWatch'
+	" command! TypstWatch call job_start(['typst', 'watch', expand('%'), expand('%:r').'.pdf'])
+      " \ | call job_start(['zathura', expand('%:r').'.pdf'])
 	call WriteMode()
 endfunction
 

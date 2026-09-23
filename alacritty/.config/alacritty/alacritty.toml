@@ -1,7 +1,7 @@
-# # # EVERFOREST
+# EVERFOREST
 [colors.primary]
-# background = "#333c43"
-background = "#272E33"
+background = "#333c43"
+# background = "#272E33"
 foreground = "#d3c6aa"
 
 [colors.normal]
@@ -23,24 +23,84 @@ blue = "#7fbbb3"
 magenta = "#d699b6"
 cyan = "#83c092"
 white = "#d3c6aa"
-[font]
-size = 18
-# size = 22
 
-[font.normal]
-family = "JetBrainsMono Nerd Font"
+# Base16 Sandcastle - alacritty color config
+# George Essig (https://github.com/gessig)
+
+# [colors]
+# draw_bold_text_with_bright_colors = false
+
+# # Default colors
+# [colors.primary]
+# background = '0x282c34'
+# foreground = '0xa89984'
+
+# # Colors the cursor will use if `custom_cursor_colors` is true
+# [colors.cursor]
+# text = '0x282c34'
+# cursor = '0xa89984'
+
+# # Normal colors
+# [colors.normal]
+# black = '0x282c34'
+# red = '0x83a598'
+# green = '0x528b8b'
+# yellow = '0xa07e3b'
+# blue = '0x83a598'
+# magenta = '0xd75f5f'
+# cyan = '0x83a598'
+# white = '0xa89984'
+
+# # Bright colors
+# [colors.bright]
+# black = '0x665c54'
+# red = '0xa07e3b'
+# green = '0x2c323b'
+# yellow = '0x3e4451'
+# blue = '0x928374'
+# magenta = '0xd5c4a1'
+# cyan = '0xa87322'
+# white = '0xfdf4c1'
+
+[font]
+size = 16
+normal = {family = "JetBrainsMono Nerd Font Mono", style = "Light"}
+bold = {family = "JetBrainsMono Nerd Font Mono", style = "Light Bold"}
+italic  = {family = "JetBrainsMono Nerd Font Mono", style = "Italic"}
+# normal = { family = "BlexMono Nerd Font", style = "Light" }
+# bold   = { family = "BlexMono Nerd Font", style = "Regular" }
+# italic = { family = "BlexMono Nerd Font", style = "Light Italic Text" }
+# bold_italic = { family = "BlexMono Nerd Font", style = "Italic Text" }
+# size = 18
+# normal = {family = "ComicShannsMono Nerd Font Mono", style = "Regular"}
+
+# family = "TamzenForPowerline"
+# style = "Medium"
+# family = "AnonymicePro Nerd Font Mono"
 # family = "Terminus"
 # family = "GoMono Nerd Font"
 # family = "Unifont"
 # family = "IosevkaTerm Nerd Font Mono"
 # family= "BlexMono Nerd Font Mono"
-style = "Regular"
 
 [window]
-decorations = "buttonless"
+decorations = "transparent"
 dynamic_title = true
+opacity = 0.90
+blur = true
 startup_mode = "Windowed"
-option_as_alt = "OnlyLeft"
+# option_as_alt = "Both"
+
+[debug]
+renderer = "glsl3"
+
+[keyboard]
+bindings = [
+  { key = "H", mods = "Alt", chars = "\u001bh" },
+  { key = "J", mods = "Alt", chars = "\u001bj" },
+  { key = "K", mods = "Alt", chars = "\u001bk" },
+  { key = "L", mods = "Alt", chars = "\u001bl" },
+]
 
 [window.dimensions]
 columns = 120

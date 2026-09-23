@@ -20,10 +20,10 @@ do
                               icon.padding_left=20 \
                               icon.padding_right=20 \
 			      icon.font="$FONT:Regular:16.0" \
-                              icon.highlight_color=0xffe67e80 \
+                              icon.highlight_color=0xffe3c78a \
                               background.padding_left=4 \
                               background.padding_right=-12  \
-                              background.color=0xff3f4a53\
+                              background.color=0xff080808 \
                               background.drawing=on \
                               label.drawing=off \
                               click_script="yabai -m space --focus $sid"
@@ -34,11 +34,11 @@ sketchybar --add item space_separator left \
                                  background.padding_left=23 \
                                  background.padding_right=23 \
                                  label.drawing=off \
-                                 icon.color=0xffd3c6aa \
+                                 icon.color=0xffeeeeee \
 
 sketchybar --add item window_title left \
            --set window_title    script="~/.config/sketchybar/plugins/window_title.sh" \
                                  icon.drawing=off \
 				 label.font="$FONT:Regular:16" \
-                                 label.color=0xffd3c6aa \
+                                 label.color=0xffeeeeee \
            --subscribe window_title front_app_switched

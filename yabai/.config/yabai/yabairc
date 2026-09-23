@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# borders active_color=0xffdbbc7f inactive_color=0xff333c43 width=7.0 hidpi=on &
 sudo yabai --load-sa
 
 
@@ -28,18 +29,18 @@ yabai -m config                                 \
     bottom_padding               12             \
     left_padding                 12             \
     right_padding                12             \
-    window_gap                   06             \
+    window_gap                   12             \
     layout                       bsp            \
     mouse_modifier               alt             \
     mouse_action1                move           \
     mouse_action2                resize         \
     mouse_drop_action            swap
 
-yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|Calendar|Todoist|Numi|TextEdit)$" manage=off
+yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|Calendar|Todoist|Numi|TextEdit|editor|replacement)$" manage=off
 
 yabai -m rule --add app="Zen" space=^1
 yabai -m rule --add app="Alacritty" space=^2
-yabai -m rule --add app="Finder" space=^3
+# yabai -m rule --add app="Finder" space=^3
 yabai -m rule --add app="Numbers/Excel" space=^4
 
 yabai -m config --display 0 external_bar all:40:0
