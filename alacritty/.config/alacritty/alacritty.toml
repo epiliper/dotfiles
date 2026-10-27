@@ -1,18 +1,73 @@
 # EVERFOREST
+# [colors.primary]
+# background = "#333c43"
+# # background = "#272E33"
+# foreground = "#d3c6aa"
+# # # # EVERFOREST
+# [colors.primary]
+# background = "#333c43"
+# # background = "#272E33"
+# foreground = "#d3c6aa"
+
+# [colors.normal]
+# black = "#4d5960"
+# red = "#e67e80"
+# green = "#a7c080"
+# yellow = "#dbbc7f"
+# blue = "#7fbbb3"
+# magenta = "#d699b6"
+# cyan = "#83c092"
+# white = "#d3c6aa"
+
+# [colors.bright]
+# black = "#4d5960"
+# red = "#e67e80"
+# green = "#a7c080"
+# yellow = "#dbbc7f"
+# blue = "#7fbbb3"
+# magenta = "#d699b6"
+# cyan = "#83c092"
+# white = "#d3c6aa"
+
+# ~/.config/alacritty/alacritty.toml
+# Habamax Unified - Sjednocené šedé téma
+
+[colors]
 [colors.primary]
-background = "#333c43"
-# background = "#272E33"
-foreground = "#d3c6aa"
+background     = "#1c1c1c"
+foreground     = "#bcbcbc"
+dim_foreground = "#808080"
+bright_foreground = "#eeeeee"
+
+[colors.cursor]
+text   = "#1c1c1c"
+cursor = "#ffffff"
+
+[colors.vi_mode_cursor]
+text   = "#1c1c1c"
+cursor = "#ffffff"
+
+[colors.search.matches]
+foreground = "#1c1c1c"
+background = "#808080"
+
+[colors.search.focused_match]
+foreground = "#1c1c1c"
+background = "#bcbcbc"
+
+[colors.selection]
+text       = "#1c1c1c"
+background = "#585858"
 
 [colors.normal]
-black = "#4d5960"
-red = "#e67e80"
-green = "#a7c080"
-yellow = "#dbbc7f"
-blue = "#7fbbb3"
-magenta = "#d699b6"
-cyan = "#83c092"
-white = "#d3c6aa"
+black   = "#1c1c1c"
+red     = "#af5f5f"
+green   = "#5f875f"
+yellow  = "#afaf5f"
+blue    = "#5f87af"
+magenta = "#af5faf"
+cyan    = "#5fafaf"
+white   = "#bcbcbc"
 
 [colors.bright]
 black = "#4d5960"
@@ -63,7 +118,7 @@ white = "#d3c6aa"
 # white = '0xfdf4c1'
 
 [font]
-size = 16
+size = 20
 normal = {family = "JetBrainsMono Nerd Font Mono", style = "Light"}
 bold = {family = "JetBrainsMono Nerd Font Mono", style = "Light Bold"}
 italic  = {family = "JetBrainsMono Nerd Font Mono", style = "Italic"}
@@ -74,33 +129,15 @@ italic  = {family = "JetBrainsMono Nerd Font Mono", style = "Italic"}
 # size = 18
 # normal = {family = "ComicShannsMono Nerd Font Mono", style = "Regular"}
 
-# family = "TamzenForPowerline"
-# style = "Medium"
-# family = "AnonymicePro Nerd Font Mono"
-# family = "Terminus"
-# family = "GoMono Nerd Font"
-# family = "Unifont"
-# family = "IosevkaTerm Nerd Font Mono"
-# family= "BlexMono Nerd Font Mono"
 
 [window]
 decorations = "transparent"
 dynamic_title = true
-opacity = 0.90
+opacity = 1.0
 blur = true
 startup_mode = "Windowed"
 # option_as_alt = "Both"
 
-[debug]
-renderer = "glsl3"
-
-[keyboard]
-bindings = [
-  { key = "H", mods = "Alt", chars = "\u001bh" },
-  { key = "J", mods = "Alt", chars = "\u001bj" },
-  { key = "K", mods = "Alt", chars = "\u001bk" },
-  { key = "L", mods = "Alt", chars = "\u001bl" },
-]
 
 [window.dimensions]
 columns = 120

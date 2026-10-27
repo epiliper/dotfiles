@@ -9,6 +9,11 @@ bar {
     modifier Mod4
 }
 
+### start: swayfx specific
+blur enable
+corner_radius 0
+### end: swayfx specific
+
 set $mod Mod4
 set $left h
 set $down j
@@ -20,22 +25,27 @@ output HDMI-A-1 resolution 3840x2160 scale 1
 client.focused #e67e80 #e67e80 #e67e80
 client.unfocused #2b3339 #2b3339 #2b3339
 
-gaps outer 10
-gaps inner 12
+# make windows floating
+for_window [title="replacement"] floating enable
+for_window [app_id="zen"] inhibit_idle fullscreen 
+for_window [app_id="brave"] inhibit_idle fullscreen 
+
+gaps outer 0
+gaps inner 0
 
 exec swayidle -w \
        timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
        before-sleep 'gtklock'
 
-       exec swaybg -i ~/stuff/walls/shore.jpg
+       exec swaybg -i ~/stuff/walls/clouds.jpg
 
        input * {
          repeat_delay 200
-           repeat_rate 50
+				 repeat_rate 50
        }
 
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+c exec zen
+bindsym $mod+Shift+c exec brave
 
 bindsym $mod+q kill
 
@@ -102,7 +112,7 @@ bindsym $mod+Shift+v splitv
 bindsym $mod+e layout toggle split
 
 # Make the current focus fullscreen
-bindsym $mod+f fullscreen
+bindsym $mod+Shift+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+o floating toggle
@@ -129,12 +139,13 @@ bindsym $mod+Alt+l             exec "swaymsg resize grow right 5 px or 5 ppt || 
 
 bindsym $mod+Ctrl+m exec sh /home/eli/stuff/scripts/brightnessctl.sh 0
 bindsym $mod+Ctrl+n exec sh /home/eli/stuff/scripts/brightnessctl.sh 1
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Alt+equal exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym Alt+minus exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 include /etc/sway/config.d/*
 
 assign [app_id="zen"] 1
+assign [app_id="brave"] 1
 assign [app_id="Alacritty"] 2
 assign [app_id="thunar"] 3
 

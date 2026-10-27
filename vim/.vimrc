@@ -10,10 +10,14 @@ set copyindent
 set autoindent
 set smartindent
 
+set hidden
+
+set formatoptions-=t
+
 set termguicolors
 
 set linebreak
-set wrap
+" set wrap
 
 set hidden
 
@@ -23,6 +27,7 @@ set cmdheight=2
 set clipboard=unnamedplus
 
 set noswapfile
+set hidden
 set incsearch
 
 let g:Hexokinase_highlighters = ['backgroundfull']
@@ -32,20 +37,26 @@ let mapleader = " "
 nnoremap <Space> <Nop>
 
 syntax enable
+let mapleader = " "
+nnoremap <Space> <Nop>
 
 call plug#begin()
 
 Plug 'sainnhe/everforest'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'chriskempson/base16-vim'
+Plug 'chasinglogic/modus-themes-vim'
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'davidosomething/vim-colors-meh'
+Plug 'nordtheme/vim'
+Plug 'chriskempson/base16-vim'
+
+Plug 'kaarmu/typst.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'markonm/traces.vim'
 
 Plug 'preservim/nerdtree'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -54,6 +65,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'srstevenson/vim-picker'
+
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 Plug 'preservim/vim-pencil'
 Plug 'junegunn/goyo.vim'
@@ -66,14 +80,16 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 
 Plug 'drmikehenry/vim-fixkey'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'mechatroner/rainbow_csv'
 Plug 'RyanMillerC/better-vim-tmux-resizer'
 
 Plug 'tmsvg/pear-tree'
+Plug 'romainl/Apprentice'
 
 call plug#end()
 
 source ~/lsp.vim
-source ~/typst.vim
+" source ~/typst.vim
 
 nnoremap y "+y
 vnoremap y "+y
@@ -101,11 +117,10 @@ nnoremap <silent> <A-l> :TmuxResizeRight<CR>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>t :GitGutterDiffOrig<CR>
 
-let g:everforest_background="hard"
-let g:everforest_transparent_background=1
-colorscheme everforest
-" colorscheme "base16-3024"
-" colorscheme base16-sandcastle
+" let g:everforest_transparent_background=1
+" colorscheme everforest
+" colorscheme nord
+colorscheme habamax
 
 set background=dark
 
@@ -126,24 +141,20 @@ filetype plugin on
 
 " WRITING
 :hi SpellBad cterm=underline
-let g:typst_pdf_viewer = "LivePDFviewer"
-" let g:typst_pdf_viewer = "Preview"
-" let g:typst_pdf_viewer = "zathura"
+let g:typst_pdf_viewer = "zathura"
 
 function WriteMode()
 	execute 'PencilSoft'
 	set spell
 endfunction
 
-function WriteModeMarkdown()
-	call WriteMode()
-endfunction
-
 function WriteModeTypst()
 	autocmd TextChanged,TextChangedI *.typ silent! execute 'write! ' . expand('%:r') . '.watch.' . expand('%:e')
-	" execute 'TypstWatch'
-	" command! TypstWatch call job_start(['typst', 'watch', expand('%'), expand('%:r').'.pdf'])
-      " \ | call job_start(['zathura', expand('%:r').'.pdf'])
+endfunction
+
+
+function WriteModeMarkdown()
+	execute 'MarkdownPreview'
 	call WriteMode()
 endfunction
 
@@ -177,4 +188,12 @@ imap <BS> <Plug>(PearTreeBackspace)
 imap <Esc> <Plug>(PearTreeFinishExpansion)
 
 " Get PearTreeExpand working with coc.nvim
-imap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<Plug>(PearTreeExpand)"
+imap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<Plug>(PearTreeExpand)"
+
+
+set statusline=%f\ -\ FileType:\ %y
+set laststatus=2
+
+" ALWAYS KEEP THIS AT THE BOTTOM
+" don't want vim randomly parse commands from files
+set nomodeline
