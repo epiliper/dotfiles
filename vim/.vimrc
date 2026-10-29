@@ -120,9 +120,9 @@ nnoremap <leader>t :GitGutterDiffOrig<CR>
 " let g:everforest_transparent_background=1
 " colorscheme everforest
 " colorscheme nord
-colorscheme habamax
 
-set background=dark
+" set background=dark
+colorscheme xamabah
 
 " BEGIN: transparent background
 highlight Normal guibg=NONE ctermbg=NONE

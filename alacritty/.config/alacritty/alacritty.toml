@@ -32,52 +32,107 @@
 # ~/.config/alacritty/alacritty.toml
 # Habamax Unified - Sjednocené šedé téma
 
-[colors]
+# [colors]
+# [colors.primary]
+# background     = "#1c1c1c"
+# foreground     = "#bcbcbc"
+# dim_foreground = "#808080"
+# bright_foreground = "#eeeeee"
+
+# [colors.cursor]
+# text   = "#1c1c1c"
+# cursor = "#ffffff"
+
+# [colors.vi_mode_cursor]
+# text   = "#1c1c1c"
+# cursor = "#ffffff"
+
+# [colors.search.matches]
+# foreground = "#1c1c1c"
+# background = "#808080"
+
+# [colors.search.focused_match]
+# foreground = "#1c1c1c"
+# background = "#bcbcbc"
+
+# [colors.selection]
+# text       = "#1c1c1c"
+# background = "#585858"
+
+# [colors.normal]
+# black   = "#1c1c1c"
+# red     = "#af5f5f"
+# green   = "#5f875f"
+# yellow  = "#afaf5f"
+# blue    = "#5f87af"
+# magenta = "#af5faf"
+# cyan    = "#5fafaf"
+# white   = "#bcbcbc"
+
+# [colors.bright]
+# black = "#4d5960"
+# red = "#e67e80"
+# green = "#a7c080"
+# yellow = "#dbbc7f"
+# blue = "#7fbbb3"
+# magenta = "#d699b6"
+# cyan = "#83c092"
+# white = "#d3c6aa"
+
+# xamabah - light background complement to habamax
+# Ported from vim-habamax (Maxim Kim)
+
 [colors.primary]
-background     = "#1c1c1c"
-foreground     = "#bcbcbc"
-dim_foreground = "#808080"
-bright_foreground = "#eeeeee"
+background = "#d7d7d7"
+foreground = "#000000"
 
 [colors.cursor]
-text   = "#1c1c1c"
-cursor = "#ffffff"
-
-[colors.vi_mode_cursor]
-text   = "#1c1c1c"
-cursor = "#ffffff"
-
-[colors.search.matches]
-foreground = "#1c1c1c"
-background = "#808080"
-
-[colors.search.focused_match]
-foreground = "#1c1c1c"
-background = "#bcbcbc"
+text   = "#ffffff"
+cursor = "#000000"
 
 [colors.selection]
-text       = "#1c1c1c"
-background = "#585858"
+text       = "#000000"
+background = "#a0c0e0"
 
 [colors.normal]
-black   = "#1c1c1c"
-red     = "#af5f5f"
-green   = "#5f875f"
-yellow  = "#afaf5f"
-blue    = "#5f87af"
-magenta = "#af5faf"
-cyan    = "#5fafaf"
-white   = "#bcbcbc"
+black   = "#000000"
+red     = "#af0000"
+green   = "#007700"
+yellow  = "#875f00"
+blue    = "#005faf"
+magenta = "#870087"
+cyan    = "#005f5f"
+white   = "#dadada"
 
 [colors.bright]
-black = "#4d5960"
-red = "#e67e80"
-green = "#a7c080"
-yellow = "#dbbc7f"
-blue = "#7fbbb3"
-magenta = "#d699b6"
-cyan = "#83c092"
-white = "#d3c6aa"
+black   = "#767676"
+red     = "#d70000"
+green   = "#009700"
+yellow  = "#af5f00"
+blue    = "#0087d7"
+magenta = "#af00af"
+cyan    = "#008787"
+white   = "#ffffff"
+
+[colors.search.matches]
+foreground = "#000000"
+background = "#bed7be"
+
+[colors.search.focused_match]
+foreground = "#000000"
+background = "#d7d0a7"
+
+[colors.footer_bar]
+foreground = "#d7d7d7"
+background = "#626262"
+
+[colors.hints.start]
+foreground = "#d7d7d7"
+background = "#af5f00"
+
+[colors.hints.end]
+foreground = "#d7d7d7"
+background = "#626262"
 
 # Base16 Sandcastle - alacritty color config
 # George Essig (https://github.com/gessig)
@@ -118,7 +173,7 @@ white = "#d3c6aa"
 # white = '0xfdf4c1'
 
 [font]
-size = 20
+size = 16
 normal = {family = "JetBrainsMono Nerd Font Mono", style = "Light"}
 bold = {family = "JetBrainsMono Nerd Font Mono", style = "Light Bold"}
 italic  = {family = "JetBrainsMono Nerd Font Mono", style = "Italic"}
@@ -133,10 +188,10 @@ italic  = {family = "JetBrainsMono Nerd Font Mono", style = "Italic"}
 [window]
 decorations = "transparent"
 dynamic_title = true
-opacity = 1.0
+opacity = 0.9
 blur = true
 startup_mode = "Windowed"
-# option_as_alt = "Both"
+option_as_alt = "Both"
 
 
 [window.dimensions]
