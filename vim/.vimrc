@@ -122,7 +122,8 @@ nnoremap <leader>t :GitGutterDiffOrig<CR>
 " colorscheme nord
 
 " set background=dark
-colorscheme xamabah
+" colorscheme xamabah
+colorscheme habamax
 
 " BEGIN: transparent background
 highlight Normal guibg=NONE ctermbg=NONE
